@@ -1,14 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="localhost:3000/source/css/style.css"> -->
+    <link rel="stylesheet" href="/source/css/reset.css">
+    <link rel="stylesheet" href="/source/css/style.css">
+    <link rel="stylesheet" href="/source/css/toasts.css">
     <title>Node JS Live page!</title>
 </head>
+
 <body>
-    <h1><%= heading %></h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente repellat ut cumque odio, libero dolores nemo laborum distinctio excepturi recusandae et nisi minus numquam molestiae vel reprehenderit fugiat voluptatum saepe.</p>
+    <main>
+        <section>
+            <div class="wrapper">
+                <div class="tab-group">
+                    <div class="active-tab">Log in</div>
+                </div>
+                <div class="wrapper-body">
+                    <div>
+                        <form method="post" action="/login">
+                            <fieldset>
+                                <legend>Email</legend>
+                                <input type="email" name="email" required placeholder="example@gmail.com">
+                            </fieldset>
+                            <fieldset>
+                                <legend>Password</legend>
+                                <input type="password" name="password" required placeholder="**********">
+                                <p class="hint">Recommended: <input type="text" class="generated-password"></p>
+                            </fieldset>
+                            <a href="#" class="forgot-password">I forgot a password</a>
+                            <button type="submit">GO</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <% if (login_failed) { %>
+        <div class="error-toast toast">
+            <div class="error-progress progress"></div>
+            <p class="error-text text">Log in failed!</p>
+        </div>
+        <script id="delete-script">
+            let toast = document.querySelector('.error-toast .error-progress');	
+            let script = document.getElementById('delete-script');
+            let progress_width = 100;
+            setInterval(() => {
+                if (progress_width <= 0) {
+                    toast.closest('.error-toast').remove();
+                    clearInterval();                
+                } else {
+                    progress_width = progress_width - 2;
+                    toast.style.width = progress_width + "%";
+                }
+            }, 100);
+            script.remove();
+        </script>
+    <% } %>    
 </body>
+
 </html>

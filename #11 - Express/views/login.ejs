@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/source/css/reset.css">
+    <link rel="stylesheet" href="/source/css/toasts.css">
+    <title>Logging...</title>
+</head>
+
+<body>
+    <h1><%= user_email %></h1>
+    <% if (login_status) { %>
+    <div class="success-toast toast">
+        <div class="success-progress progress"></div>
+        <p class="success-text text">Log in success!</p>
+    </div>
+    <% } %>
+    <script id="delete-script">
+        (function () {
+            let toast = document.querySelector('.success-toast .success-progress');
+            let script = document.getElementById('delete-script');
+            let progress_width = 100;
+            setInterval(() => {
+                if (progress_width <= 0) {
+                    toast.closest('.success-toast').remove();
+                    clearInterval();
+                } else {
+                    progress_width = progress_width - 2;
+                    toast.style.width = progress_width + "%";
+                }
+            }, 100);
+            script.remove();
+        }())
+    </script>
+</body>
+
+</html>

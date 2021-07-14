@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	font-family: "Montserrat", cursive;
+}
+
+input {
+	border: none;
+	outline: none;
+	background-color: #ededed;
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+	border-radius: 5px;
+}
+
+button {
+	background-color: white;
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 5px;
+	cursor: pointer;
+	color: #6f42c1;
+}
+
+main {
+	background: url("https://cdn.pixabay.com/photo/2021/03/29/12/16/stairs-6133971_960_720.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+}
+
+section {
+	display: flex;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.25);
+	-webkit-backdrop-filter: blur(2px);
+	backdrop-filter: blur(5px);
+	padding: 0 15px;
+	z-index: 100;
+}
+
+section .wrapper {
+	background-color: #fff;
+	box-shadow: 0 0 25px black;
+	border-radius: 10px;
+	max-width: 400px;
+	width: 100%;
+	-webkit-animation: scaling 0.2s linear;
+	animation: scaling 0.2s linear;
+	overflow: hidden;
+}
+
+section .wrapper .btn-group {
+	display: flex;
+	border-bottom: 2px solid rgba(111, 66, 193, 0.5);
+}
+
+section .wrapper .tab-group div {
+	width: 100%;
+	padding: 15px;
+	border-radius: 0px;
+	transition: 0.2s linear;
+}
+
+section .wrapper .tab-group .active-tab {
+	text-align: center;
+	background-color: #6f42c1;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+section .wrapper .wrapper-body {
+	padding: 15px;
+}
+
+section .wrapper .wrapper-body form fieldset:not(:first-child) {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+section .wrapper .wrapper-body form fieldset legend {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+section .wrapper .wrapper-body form fieldset .hint {
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+}
+
+section .wrapper .wrapper-body form fieldset .generated-password {
+	padding: 0 7px;
+	background-color: #fff;
+	text-decoration: underline;
+	cursor: pointer;
+	color: rgba(111, 66, 193, 0.75);
+}
+
+section .wrapper .wrapper-body form a {
+	display: block;
+	font-size: 14px;
+	color: #6f42c1;
+	font-weight: bold;
+}
+
+section .wrapper .wrapper-body form [type=submit] {
+	display: block;
+	background-color: #6f42c1;
+	width: 100%;
+	margin-top: 10px;
+	color: white;
+}
+
+@-webkit-keyframes scaling {
+	from {
+		transform: scale(0);
+	}
+
+	50% {
+		transform: scale(1);
+	}
+
+	75% {
+		transform: scale(0.85);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes scaling {
+	from {
+		transform: scale(0);
+	}
+
+	50% {
+		transform: scale(1);
+	}
+
+	75% {
+		transform: scale(0.85);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
